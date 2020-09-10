@@ -9,17 +9,15 @@ class List extends Component {
     add: false,
   };
 
-  componentDidMount() {
-    axios.get("https://task-api-bi.herokuapp.com/list").then((res) => {
+  async componentDidMount() {
+    await axios.get("https://task-api-bi.herokuapp.com/list").then((res) => {
       const Tasks = res.data.Tasks;
-      console.log(Tasks.length);
       for (let i = 0; i < Tasks.length; i++) {
         if (Tasks[i].duration == null) {
           Tasks[i].duration = "Permanent";
         }
       }
       this.setState({ Tasks });
-      console.log(Tasks);
     });
   }
 

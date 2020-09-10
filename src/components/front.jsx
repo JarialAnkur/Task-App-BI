@@ -18,8 +18,6 @@ const Front = () => {
     e.preventDefault();
     axios.post("https://task-api-bi.herokuapp.com/add", body).then((res) => {
       if (res.status === 200) {
-        console.log(res.data);
-        console.log(res.status);
         setState(true);
       }
     });
